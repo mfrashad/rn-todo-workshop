@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { LinearGradient }  from 'expo-linear-gradient';
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <LinearGradient style={styles.container} colors={['#DA4453', '#89216B']}>
       <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    </LinearGradient>
   );
 }
 
