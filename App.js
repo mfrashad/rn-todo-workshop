@@ -27,7 +27,7 @@ export default class App extends React.Component {
             onChangeText={this.newTodoItemController}
             placeholderTextColor="#999"
             returnKeyType="done"
-            autoCorrect="false"
+            autoCorrect={false}
           ></TextInput>
           <ScrollView contentContainerStyle={styles.listContainer}>
             <TodoList/>
