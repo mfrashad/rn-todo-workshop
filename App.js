@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Dimensions, ScrollView } from 'react-native';
+import TodoList from './components/TodoList';
 import { LinearGradient }  from 'expo-linear-gradient';
 
 const { height, width } = Dimensions.get('window');
@@ -28,6 +29,9 @@ export default class App extends React.Component {
             returnKeyType="done"
             autoCorrect="false"
           ></TextInput>
+          <ScrollView>
+            <TodoList/>
+          </ScrollView>
         </View>
       </LinearGradient>
     );
