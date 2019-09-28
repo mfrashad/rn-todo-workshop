@@ -11,16 +11,26 @@ const { height, width } = Dimensions.get('window');
 
 class TodoList extends Component {
   state = {
-    isEditing: false
+    isEditing: false,
+    isCompleted: false
   };
+
+  toggleItem = () => {
+    this.setState(prevState => {
+      return{
+        isCompleted: !prevState.isCompleted
+      }
+    })
+  }
 
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
-          <View style={styles.circle} />
+        <TouchableOpacity onPress={this.toggleItem}>
+          <View style={[styles.circle, isCompleted ? styles.completeCircle : styles.incompleteCircle]} />
         </TouchableOpacity>
-        <Text style={styles.text}>Todo List will show here</Text>
+        <Text style={[styles.text, isCompleted ? styles.strikeText : styles.unstrikeText]}>Todo List will show here</Text>
+        
       </View>
     );
   }
@@ -39,13 +49,26 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginVertical: 20
   },
+  strikeText: {
+    color: '#bbb',
+    textDecorationLine: 'line-through'
+  },
+  unstrikeText: {
+    color: "#29323c"
+  },
   circle: {
     width: 30,
     height: 30,
     borderRadius: 15,
-    borderColor: 'red',
+    // remove borderColor property from here
     borderWidth: 3,
     marginRight: 20
+  },
+  completeCircle: {
+    borderColor: '#bbb'
+  },
+  incompleteCircle: {
+    borderColor: '#DA4453'
   }
 });
 
